@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package web;
+
+option go_package="api/sdk";
+
+service MConfig {
+  rpc GetVStream(GetVRequest) returns ( stream GetVResponse) {}
+}
+
+message GetVRequest {
+  string configid = 1;
+  //....
+}
+
+message GetVResponse{
+  string config = 1;
+}
+
