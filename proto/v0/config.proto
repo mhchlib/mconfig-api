@@ -10,7 +10,6 @@ service MConfig {
 
 message GetVRequest {
   string configid = 1;
-  //....
 }
 
 message GetVResponse{

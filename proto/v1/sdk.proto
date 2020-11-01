@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package api.sdk;
+
+option go_package="github.com/mhchlib/mconfig-api/api/v1/sdk";
+
+import "proto/v1/common.proto";
+
+
+service MConfig {
+  rpc GetVStream(GetVRequest) returns ( stream GetVResponse) {}
+}
+
+
+message GetVRequest {
+  string app_id = 1;
+  repeated string config_id = 2;
+  repeated api.common.ExtraData extra_data = 3;
+}
+
+message GetVResponse{
+  repeated api.common.ConfigEntityForClient configs = 1;
+
+}
+
