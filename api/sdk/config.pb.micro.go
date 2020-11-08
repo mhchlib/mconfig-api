@@ -33,13 +33,13 @@ var _ context.Context
 var _ client.Option
 var _ server.Option
 
-// Api Endpoints for MConfig service
+// Api Endpoints for MConfig pkg
 
 func NewMConfigEndpoints() []*api.Endpoint {
 	return []*api.Endpoint{}
 }
 
-// Client API for MConfig service
+// Client API for MConfig pkg
 
 type MConfigService interface {
 	GetVStream(ctx context.Context, in *GetVRequest, opts ...client.CallOption) (MConfig_GetVStreamService, error)
@@ -106,7 +106,7 @@ func (x *mConfigServiceGetVStream) Recv() (*GetVResponse, error) {
 	return m, nil
 }
 
-// Server API for MConfig service
+// Server API for MConfig pkg
 
 type MConfigHandler interface {
 	GetVStream(context.Context, *GetVRequest, MConfig_GetVStreamStream) error
