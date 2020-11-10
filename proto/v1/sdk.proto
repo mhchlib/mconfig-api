@@ -12,14 +12,33 @@ service MConfig {
 }
 
 
+message  ExtraData{
+  string key = 1;
+  string Value = 2;
+}
+
+
 message GetVRequest {
   string app_id = 1;
-  repeated string config_id = 2;
-  repeated api.common.ExtraData extra_data = 3;
+  ConfigFilters filters=2;
+}
+
+message ConfigFilters{
+  repeated string config_ids = 2;
+  map<string, string>  extra_data = 3;
+}
+
+message Config{
+  string    id = 1;
+  string schema = 2;
+  string config = 3;
+  api.common.ConfigStatus status = 4;
+  string desc = 5;
+  int64 create_time = 6;
+  int64 update_time = 7;
 }
 
 message GetVResponse{
-  repeated api.common.ConfigEntityForClient configs = 1;
-
+  repeated Config configs = 1;
 }
 
