@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package api.sdk;
+
+option go_package="github.com/mhchlib/mconfig-api/api/v1/cli";
+
+import "proto/v1/common.proto";
+
+
+service MConfigCli {
+  rpc PutMconfig(PutMconfigRequest) returns (PutMconfigResponse) {}
+}
+
+
+message PutMconfigRequest{
+  string   app  = 1;
+  string   name = 2;
+  string schema = 3;
+  string config = 4;
+  api.common.ConfigStatus status = 5;
+  string desc = 6;
+}
+
+message PutMconfigResponse{
+  int32 code = 1;
+  string msg = 2;
+}
+
