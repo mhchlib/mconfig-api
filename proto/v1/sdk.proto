@@ -8,7 +8,7 @@ import "proto/v1/common.proto";
 
 
 service MConfig {
-  rpc GetVStream(GetVRequest) returns ( stream GetVResponse) {}
+  rpc GetVStream(stream GetVRequest) returns (stream GetVResponse) {}
 }
 
 
