@@ -12,14 +12,14 @@ service MConfig {
 }
 
 
-message  ExtraData{
+message  Data{
   string key = 1;
   string Value = 2;
 }
 
 
 message GetVRequest {
-  string app_id = 1;
+  string app_key = 1;
   ConfigFilters filters=2;
 }
 
@@ -29,7 +29,7 @@ message ConfigFilters{
 }
 
 message Config{
-  string    id = 1;
+  string    key = 1;
   string schema = 2;
   string config = 3;
   api.common.ConfigStatus status = 4;
