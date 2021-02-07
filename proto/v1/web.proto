@@ -1,5 +1,0 @@
-syntax = "proto3";
-
-package api.web;
-
-option go_package="github.com/mhchlib/mconfig-api/api/v1/web";
