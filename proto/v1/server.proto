@@ -18,8 +18,9 @@ service MConfig {
 
 message WatchConfigStreamRequest {
   string app_key = 1;
-  repeated string config_keys = 2;
-  map<string, string> metadata = 3;
+  string env_key = 2;
+  repeated string config_keys = 3;
+  map<string, string> metadata = 4;
 }
 
 message ConfigVal{
