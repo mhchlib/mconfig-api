@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package api.sdk;
+
+option go_package="github.com/mhchlib/mconfig-api/api/v1/server";
+
+import "google/protobuf/empty.proto";
+
+service MConfig {
+  rpc WatchConfigStream(stream WatchConfigStreamRequest) returns (stream WatchConfigStreamResponse) {}
+  rpc GetNodeStoreData(GetNodeStoreDataRequest) returns (GetNodeStoreDataResponse) {}
+  rpc UpdateConfig(UpdateConfigRequest) returns (UpdateConfiResponse) {}
+  rpc UpdateFilter(UpdateFilterRequest) returns (google.protobuf.Empty) {}
+  rpc GetNodeDetail(google.protobuf.Empty) returns (GetNodeDetailResponse) {}
+  rpc DeletConfig(DeletConfigRequest) returns (google.protobuf.Empty) {}
+  rpc DeletFilter(DeletFilterRequest) returns (google.protobuf.Empty) {}
+}
+
+message WatchConfigStreamRequest {
+  string app_key = 1;
+  string env_key = 2;
+  repeated string config_keys = 3;
+  map<string, string> metadata = 4;
+}
+
+message ConfigVal{
+  string config_key = 1;
+  string  val = 3;
+}
+
+message WatchConfigStreamResponse{
+  repeated ConfigVal configs = 1;
+}
+
+message GetNodeStoreDataResponse{
+  bytes data = 1;
+}
+
+message GetNodeStoreDataRequest{
+
+}
+
+message UpdateConfigRequest{
+  string app = 1;
+  string env = 2;
+  string config = 3;
+  string filter = 4;
+  string val = 5;
+}
+
+message UpdateFilterRequest{
+  string app = 1;
+  string env = 2;
+  string filter = 3;
+}
+
+message UpdateConfiResponse{
+
+}
+
+message GetNodeDetailResponse{
+  bytes data = 1;
+}
+
+message DeletConfigRequest{
+  string app = 1;
+  string env = 2;
+  string config = 3;
+}
+
+message DeletFilterRequest{
+  string app = 1;
+  string env = 2;
+}
